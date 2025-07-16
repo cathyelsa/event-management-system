@@ -1,0 +1,924 @@
+CONTENTS OF THE ACADEMIC PROJECT REPORT
+
+# Executive Summary
+The Event Management System is a comprehensive web application designed to address the challenges faced by event organizers and attendees in managing and participating in events. The current manual or fragmented systems for event management lead to inefficiencies, communication gaps, and limited analytics capabilities.
+
+Our solution provides a unified platform where organizers can create, manage, and analyze events while customers can discover, book, and provide feedback on events they attend. The system also includes an administrative interface for platform governance and oversight.
+
+The project was developed using the Agile methodology with iterative development cycles, allowing for continuous feedback and improvement. The technology stack includes Python with Flask framework for the backend, MySQL for database management, and HTML/CSS/JavaScript for the frontend. Advanced features include sentiment analysis of customer feedback using TextBlob and VADER algorithms to provide actionable insights to event organizers.
+
+# Background
+
+## Existing System
+Currently, event management is handled through a combination of manual processes and disconnected digital tools. Organizers typically use spreadsheets to track attendees, separate payment systems for transactions, and email or social media for communication. Customers must navigate multiple platforms to discover events, purchase tickets, and provide feedback.
+
+The existing business flow involves:
+1. Organizers manually creating event listings on various platforms
+2. Customers discovering events through different channels
+3. Booking processes that often require manual confirmation
+4. Payment collection through separate systems
+5. Feedback collection via email or paper forms
+6. Manual analysis of attendance and feedback data
+
+## Definition of Problem
+The existing system presents several challenges:
+
+1. **Fragmentation**: Information is scattered across multiple platforms, leading to inconsistencies and duplication of effort.
+2. **Limited Visibility**: Customers struggle to discover relevant events that match their interests.
+3. **Manual Processes**: Booking confirmations, payment reconciliation, and attendance tracking are often manual and error-prone.
+4. **Feedback Challenges**: Collecting and analyzing customer feedback is difficult and time-consuming.
+5. **Lack of Analytics**: Organizers have limited tools to understand event performance and customer sentiment.
+6. **Approval Workflow**: No standardized process for event approval and quality control.
+7. **Security Concerns**: Payment and personal information may not be adequately protected.
+
+## Proposed System
+The proposed Event Management System addresses these problems through a unified web application with role-based access for administrators, organizers, and customers. The system will:
+
+1. Provide a centralized platform for event creation, discovery, and management
+2. Implement automated booking and payment processing
+3. Offer a structured feedback system with sentiment analysis
+4. Include an approval workflow for quality control
+5. Deliver analytics dashboards for data-driven decision making
+6. Ensure secure handling of user data and payments
+
+The revised business flow will be:
+1. Organizers create events through a standardized interface
+2. Administrators review and approve events
+3. Customers discover events through search and filtering
+4. Automated booking and payment processing
+5. Digital ticket issuance and management
+6. Structured feedback collection after events
+7. Automated sentiment analysis and reporting
+
+# Project Overview
+
+## Objective of the Project
+The primary objectives of this project are to:
+
+1. Streamline the event management process for organizers
+2. Enhance the event discovery and booking experience for customers
+3. Provide administrators with tools for platform governance
+4. Generate actionable insights through data analysis
+5. Reduce manual effort and potential for errors
+6. Increase event attendance and customer satisfaction
+
+## Stakeholders
+
+1. **Event Organizers**
+   - **Goals**: Create and manage events, track bookings, analyze feedback
+   - **Benefits**: Reduced administrative overhead, increased visibility, data-driven insights
+
+2. **Customers/Attendees**
+   - **Goals**: Discover events, book tickets, provide feedback
+   - **Benefits**: Simplified discovery, seamless booking, improved event quality
+
+3. **Administrators**
+   - **Goals**: Ensure platform quality, manage categories, oversee operations
+   - **Benefits**: Centralized management, quality control, system-wide analytics
+
+4. **Business Owners**
+   - **Goals**: Generate revenue, grow user base, ensure platform success
+   - **Benefits**: Increased transaction volume, user engagement, and retention
+
+## Scope of the Project
+The Event Management System includes:
+
+1. User management with role-based access control
+2. Event creation, editing, and management
+3. Category management
+4. Event approval workflow
+5. Ticket booking and payment processing
+6. Feedback collection and sentiment analysis
+7. Reporting and analytics dashboards
+
+Out of scope:
+1. Integration with external calendar systems
+2. Mobile application development (web-only for initial release)
+3. On-site check-in functionality
+4. Third-party marketing integrations
+5. Hardware setup or infrastructure provisioning
+
+## Feasibility Analysis
+
+### Technology and System Feasibility
+The system will be developed using established technologies:
+- Python with Flask framework for backend development
+- MySQL for database management
+- HTML/CSS/JavaScript for frontend development
+- TextBlob and VADER for sentiment analysis
+
+These technologies are well-documented, have active communities, and are suitable for web application development. The system will handle:
+- Approximately 1000 concurrent users
+- Storage for event details, user profiles, and feedback
+- Regular database updates for bookings and feedback
+- Image uploads for event promotion
+
+The chosen technologies can adequately support these requirements, making the system technically feasible.
+
+### Operational Feasibility
+The system addresses the identified problems by:
+1. Centralizing event management processes
+2. Automating booking and payment workflows
+3. Providing structured feedback collection
+4. Offering analytics for data-driven decisions
+
+Users will benefit from:
+1. Intuitive interfaces tailored to their roles
+2. Reduced manual effort
+3. Improved visibility and communication
+4. Enhanced analytics capabilities
+
+The system aligns with stakeholder goals and provides clear operational benefits, making it operationally feasible.
+
+### Schedule Feasibility
+The project timeline is reasonable with the following phases:
+1. Requirements gathering and analysis: 2 weeks
+2. Design and planning: 2 weeks
+3. Development: 8 weeks
+4. Testing and quality assurance: 2 weeks
+5. Deployment and documentation: 1 week
+
+Total project duration: 15 weeks
+
+With appropriate resource allocation and risk management, this schedule is achievable.
+
+### Economic Feasibility – Cost-Benefit Analysis
+**Development Costs:**
+- Developer time: $30,000
+- Design and UX: $5,000
+- Testing and QA: $5,000
+- Infrastructure setup: $2,000
+- Total development cost: $42,000
+
+**Operational Costs (Annual):**
+- Hosting and infrastructure: $3,600
+- Maintenance and updates: $10,000
+- Support: $5,000
+- Total annual operational cost: $18,600
+
+**Expected Benefits (Annual):**
+- Transaction fee revenue: $50,000
+- Subscription revenue from organizers: $30,000
+- Reduced administrative costs: $15,000
+- Improved customer retention value: $20,000
+- Total annual benefit: $115,000
+
+**ROI Analysis:**
+- First-year net benefit: $54,400 ($115,000 - $18,600 - $42,000)
+- Subsequent annual net benefit: $96,400 ($115,000 - $18,600)
+- Payback period: Approximately 6 months
+- 3-year ROI: 547% (($54,400 + $96,400*2)/$42,000)
+
+The project is economically feasible with a strong return on investment.
+
+# Overall Project Planning
+
+## Development Environment
+The development environment includes:
+- **IDE**: Visual Studio Code
+- **Version Control**: Git
+- **Database**: MySQL
+- **Backend**: Python 3.9 with Flask framework
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Package Management**: pip
+- **Testing Tools**: pytest, Selenium
+- **Documentation**: Markdown, Sphinx
+- **Deployment**: Docker, Nginx
+
+## Constraints
+1. **Time Constraints**: The project must be completed within 15 weeks
+2. **Budget Constraints**: Development budget limited to $45,000
+3. **Resource Constraints**: Team limited to 3 developers, 1 designer, and 1 QA specialist
+4. **Technical Constraints**: Must be compatible with major web browsers and responsive for mobile devices
+5. **Security Constraints**: Must comply with data protection regulations
+
+## Deliverables
+1. **Application**:
+   - Web application with customer, organizer, and admin interfaces
+   - Source code with documentation
+   - Database schema and initial data
+
+2. **Documentation**:
+   - Requirements specification
+   - Design documentation
+   - User manual
+   - Installation guide
+   - API documentation
+   - Testing documentation
+
+3. **Deployment**:
+   - Deployment scripts
+   - Configuration files
+   - Database migration scripts
+
+## Assumptions and Dependencies
+1. **Assumptions**:
+   - Users have basic computer literacy
+   - Stable internet connection is available
+   - Users have access to standard web browsers
+   - Payment gateway services are available
+   - Email services are available for notifications
+
+2. **Dependencies**:
+   - Availability of MySQL database
+   - Access to SMTP server for email notifications
+   - Python and required libraries
+   - Web server for deployment
+
+## Risks
+1. **Technical Risks**:
+   - **Risk**: Integration issues with payment gateways
+   - **Mitigation**: Early prototyping and testing of payment integration
+
+2. **Schedule Risks**:
+   - **Risk**: Scope creep extending development timeline
+   - **Mitigation**: Clear requirements documentation and change management process
+
+3. **Resource Risks**:
+   - **Risk**: Developer unavailability due to illness or turnover
+   - **Mitigation**: Cross-training team members and maintaining detailed documentation
+
+4. **Operational Risks**:
+   - **Risk**: Performance issues under high load
+   - **Mitigation**: Load testing and performance optimization
+
+5. **Security Risks**:
+   - **Risk**: Vulnerability to common web attacks
+   - **Mitigation**: Security code reviews, penetration testing
+
+## Process Model
+The project will follow the Agile Scrum methodology with:
+- 2-week sprint cycles
+- Daily stand-up meetings
+- Sprint planning and retrospective sessions
+- Continuous integration and deployment
+- Iterative development with regular stakeholder feedback
+
+This approach was chosen because:
+1. It allows for flexibility in requirements
+2. It provides regular deliverables for stakeholder review
+3. It enables early identification and resolution of issues
+4. It supports continuous improvement throughout the project
+
+## Test Strategy
+The testing strategy includes:
+
+1. **Unit Testing**:
+   - Testing individual components and functions
+   - Automated tests using pytest
+   - Coverage target of 80%
+
+2. **Integration Testing**:
+   - Testing interactions between components
+   - API endpoint testing
+   - Database integration testing
+
+3. **System Testing**:
+   - End-to-end testing of complete workflows
+   - Performance and load testing
+   - Security testing
+
+4. **User Acceptance Testing**:
+   - Testing with actual users from each role
+   - Scenario-based testing
+   - Usability testing
+
+## Testing Environment and Tools
+- **Testing Environment**:
+  - Development environment: Local machines with identical configurations
+  - Testing environment: Dedicated test server with production-like setup
+  - UAT environment: Staging server with production configuration
+
+- **Testing Tools**:
+  - pytest for unit and integration testing
+  - Selenium for automated UI testing
+  - JMeter for load testing
+  - OWASP ZAP for security testing
+  - Postman for API testing
+
+# Iteration Planning
+
+## Schedule
+The project will be executed in 7 sprints of 2 weeks each:
+
+1. **Sprint 1 (Weeks 1-2)**:
+   - Requirements gathering and analysis
+   - Database design
+   - Project setup and environment configuration
+
+2. **Sprint 2 (Weeks 3-4)**:
+   - User authentication and authorization
+   - Basic user management
+   - Core database models
+
+3. **Sprint 3 (Weeks 5-6)**:
+   - Event creation and management
+   - Category management
+   - Admin approval workflow
+
+4. **Sprint 4 (Weeks 7-8)**:
+   - Event discovery and search
+   - Booking system
+   - Payment integration
+
+5. **Sprint 5 (Weeks 9-10)**:
+   - Feedback collection
+   - Sentiment analysis
+   - Basic reporting
+
+6. **Sprint 6 (Weeks 11-12)**:
+   - Advanced analytics
+   - Dashboard development
+   - Performance optimization
+
+7. **Sprint 7 (Weeks 13-15)**:
+   - Testing and bug fixing
+   - Documentation
+   - Deployment preparation
+
+## Risk
+Iteration-specific risks include:
+
+1. **Sprint 1-2**:
+   - **Risk**: Incomplete or changing requirements
+   - **Mitigation**: Regular stakeholder reviews and flexible design
+
+2. **Sprint 3-4**:
+   - **Risk**: Complexity in approval workflows
+   - **Mitigation**: Early prototyping and user feedback
+
+3. **Sprint 5-6**:
+   - **Risk**: Challenges in sentiment analysis accuracy
+   - **Mitigation**: Multiple algorithm approaches and testing with real data
+
+4. **Sprint 7**:
+   - **Risk**: Integration issues during final assembly
+   - **Mitigation**: Continuous integration throughout development
+
+# High Level System Analysis
+
+## User Characteristics
+
+1. **Administrators**:
+   - Technical proficiency: High
+   - System usage: Daily management and oversight
+   - Training needs: Platform administration, reporting tools
+
+2. **Event Organizers**:
+   - Technical proficiency: Medium
+   - System usage: Regular event creation and management
+   - Training needs: Event creation workflow, analytics interpretation
+
+3. **Customers**:
+   - Technical proficiency: Varied (low to high)
+   - System usage: Occasional event discovery and booking
+   - Training needs: Minimal, intuitive interface required
+
+## Summary of System Features/Functional Requirements
+
+1. **User Management**:
+   - User registration and authentication
+   - Role-based access control
+   - Profile management
+
+2. **Event Management**:
+   - Event creation with detailed information
+   - Event editing and updates
+   - Event status management (pending, approved, rejected)
+   - Image upload for event promotion
+
+3. **Category Management**:
+   - Category creation and editing
+   - Category assignment to events
+
+4. **Event Discovery**:
+   - Browsing events by category
+   - Searching and filtering events
+   - Viewing event details
+
+5. **Booking System**:
+   - Ticket selection and reservation
+   - Payment processing
+   - Booking confirmation
+   - Booking history
+
+6. **Feedback System**:
+   - Rating submission
+   - Written feedback collection
+   - Feedback management
+
+7. **Analytics and Reporting**:
+   - Sentiment analysis of feedback
+   - Event performance metrics
+   - Booking and revenue reports
+   - Customer satisfaction tracking
+
+8. **Administration**:
+   - Event approval workflow
+   - User management
+   - System monitoring
+
+## Non-Functional Requirements / Supplementary Specification
+
+1. **Performance**:
+   - Page load time under 3 seconds
+   - Support for 1000 concurrent users
+   - Database query response time under 500ms
+
+2. **Security**:
+   - Secure password storage with hashing
+   - Protection against common web vulnerabilities (XSS, CSRF, SQL Injection)
+   - Secure payment processing
+   - Data encryption for sensitive information
+
+3. **Usability**:
+   - Intuitive user interface
+   - Mobile-responsive design
+   - Accessible to users with disabilities (WCAG 2.1 AA compliance)
+   - Clear error messages and user guidance
+
+4. **Reliability**:
+   - System availability of 99.9%
+   - Data backup and recovery procedures
+   - Graceful error handling
+
+5. **Scalability**:
+   - Ability to scale with increasing users and events
+   - Database optimization for large datasets
+   - Efficient resource utilization
+
+6. **Maintainability**:
+   - Well-documented code
+   - Modular architecture
+   - Automated testing with good coverage
+   - Version control and change management
+
+## Glossary
+
+- **Event**: A scheduled gathering organized for a specific purpose
+- **Organizer**: User who creates and manages events
+- **Customer**: User who browses and books events
+- **Admin**: User who oversees the platform and approves events
+- **Booking**: A reservation for one or more tickets to an event
+- **Category**: A classification for events (e.g., music, business, sports)
+- **Feedback**: Ratings and comments provided by customers after attending an event
+- **Sentiment Analysis**: Automated analysis of feedback to determine positive, neutral, or negative sentiment
+- **Dashboard**: A visual interface displaying key metrics and information
+
+## Business Rules
+
+1. **Event Approval**:
+   - All events must be approved by an administrator before becoming visible to customers
+   - Events can be rejected with a reason provided to the organizer
+
+2. **Booking Rules**:
+   - Customers can only book events that are approved and have available seats
+   - Bookings are confirmed only after successful payment
+   - Customers can cancel bookings according to the cancellation policy
+
+3. **Feedback Rules**:
+   - Only customers who have booked and attended an event can provide feedback
+   - Feedback can only be submitted after the event date has passed
+   - Each customer can submit only one feedback per event
+
+4. **Payment Rules**:
+   - Payments must be processed securely
+   - Refunds are processed according to the cancellation policy
+   - Transaction records must be maintained for auditing
+
+5. **User Management**:
+   - Email addresses must be unique across all users
+   - Passwords must meet minimum security requirements
+   - User roles cannot be changed after registration
+
+## Use Cases
+
+1. **User Registration and Login**:
+   - Register as a new user
+   - Login to the system
+   - Recover forgotten password
+
+2. **Profile Management**:
+   - View and edit profile information
+   - Change password
+   - View activity history
+
+3. **Event Management (Organizer)**:
+   - Create new event
+   - Edit existing event
+   - Delete event
+   - View event bookings
+   - View event feedback
+
+4. **Event Discovery (Customer)**:
+   - Browse events by category
+   - Search for events
+   - Filter events by date, price, location
+   - View event details
+
+5. **Booking Management (Customer)**:
+   - Book tickets for an event
+   - View booking details
+   - Cancel booking
+   - Download booking confirmation
+
+6. **Feedback Management**:
+   - Submit feedback for attended event
+   - View submitted feedback
+   - Analyze feedback sentiment
+
+7. **Administration**:
+   - Approve or reject events
+   - Manage categories
+   - View system statistics
+   - Generate reports
+
+# Use Case Text
+
+## Use Case: Create New Event
+
+**Actor**: Event Organizer
+
+**Description**: This use case allows an organizer to create a new event in the system.
+
+**Preconditions**:
+- Organizer is logged into the system
+- Organizer has an active account
+
+**Basic Flow**:
+1. Organizer selects "Create Event" option
+2. System displays the event creation form
+3. Organizer enters event details:
+   - Title (required)
+   - Description
+   - Category (required)
+   - Date and time (required)
+   - Location (required)
+   - Total seats (required)
+   - Ticket price (required)
+   - Event image (optional)
+4. Organizer submits the form
+5. System validates the input
+6. System saves the event with "pending" status
+7. System displays confirmation message
+8. System notifies administrators about the new event for approval
+
+**Alternative Flows**:
+- If validation fails, system displays error messages and returns to step 3
+- If image upload fails, system offers alternative options (URL input)
+
+**Non-functional Requirements**:
+- Form submission should complete within 3 seconds
+- Image uploads limited to 5MB
+- Input validation must be performed both client and server-side
+
+**Business Rules**:
+- Event date must be in the future
+- Ticket price must be zero or positive
+- Total seats must be between 1 and 10,000
+
+**User Inputs**:
+- Text inputs for event details
+- Date picker for event date
+- File upload for event image
+
+**Error Messages**:
+- "Event title is required"
+- "Event date must be in the future"
+- "Please select a valid category"
+- "Total seats must be at least 1"
+- "Image file size exceeds 5MB limit"
+
+## Use Case: Book Event Tickets
+
+**Actor**: Customer
+
+**Description**: This use case allows a customer to book tickets for an event.
+
+**Preconditions**:
+- Customer is logged into the system
+- Event is approved and has available seats
+
+**Basic Flow**:
+1. Customer views event details
+2. Customer selects "Book Now" option
+3. System displays booking form with available seats
+4. Customer selects number of tickets
+5. System calculates total price
+6. Customer confirms booking
+7. System redirects to payment page
+8. Customer enters payment details
+9. System processes payment
+10. System creates booking record
+11. System updates available seats
+12. System displays booking confirmation
+13. System sends confirmation email to customer
+
+**Alternative Flows**:
+- If payment fails, system displays error and returns to payment page
+- If no seats are available, system displays message and disables booking option
+
+**Non-functional Requirements**:
+- Payment processing should be secure (PCI compliant)
+- Booking confirmation should be immediate after payment
+- Concurrent bookings should be handled correctly
+
+**Business Rules**:
+- Customer cannot book more tickets than available seats
+- Customer cannot book more than 10 tickets in a single transaction
+- Seats are reserved temporarily during payment process
+
+**User Inputs**:
+- Number of tickets
+- Payment information
+
+**Error Messages**:
+- "Please select at least 1 ticket"
+- "Only [X] seats available"
+- "Payment processing failed: [reason]"
+
+# Reports
+
+## Event Performance Report
+
+**Format**:
+```
+EVENT PERFORMANCE REPORT
+Generated: [Date and Time]
+
+Event: [Event Title]
+Organizer: [Organizer Name]
+Date: [Event Date]
+Location: [Event Location]
+
+ATTENDANCE SUMMARY
+----------------
+Total Seats: [Total Seats]
+Bookings: [Number of Bookings]
+Attendance Rate: [Percentage]
+
+REVENUE SUMMARY
+----------------
+Ticket Price: $[Price]
+Total Revenue: $[Total]
+Refunds: $[Refund Amount]
+Net Revenue: $[Net Amount]
+
+FEEDBACK SUMMARY
+----------------
+Total Feedback: [Count]
+Average Rating: [Rating]/5
+Sentiment Breakdown:
+- Positive: [Percentage]
+- Neutral: [Percentage]
+- Negative: [Percentage]
+
+TOP COMMENTS
+----------------
+[List of top positive and negative comments]
+
+RECOMMENDATIONS
+----------------
+[Automated recommendations based on feedback]
+```
+
+## Organizer Dashboard Report
+
+**Format**:
+```
+ORGANIZER PERFORMANCE DASHBOARD
+Period: [Date Range]
+Organizer: [Organizer Name]
+
+EVENTS SUMMARY
+----------------
+Total Events: [Count]
+Approved Events: [Count]
+Pending Events: [Count]
+Rejected Events: [Count]
+
+BOOKING METRICS
+----------------
+Total Bookings: [Count]
+Average Bookings per Event: [Number]
+Total Revenue: $[Amount]
+Average Revenue per Event: $[Amount]
+
+CUSTOMER SATISFACTION
+----------------
+Average Rating: [Rating]/5
+Sentiment Score: [Score]/100
+Feedback Response Rate: [Percentage]
+
+TOP PERFORMING EVENTS
+----------------
+1. [Event Title] - $[Revenue] - [Rating]/5
+2. [Event Title] - $[Revenue] - [Rating]/5
+3. [Event Title] - $[Revenue] - [Rating]/5
+
+IMPROVEMENT AREAS
+----------------
+[List of areas identified from negative feedback]
+
+TREND ANALYSIS
+----------------
+[Month-by-month comparison of key metrics]
+```
+
+# Theoretical Background
+
+## Web Application Architecture
+The Event Management System is built on a three-tier architecture:
+1. **Presentation Layer**: HTML, CSS, and JavaScript for the user interface
+2. **Application Layer**: Python with Flask framework for business logic
+3. **Data Layer**: MySQL database for data storage and retrieval
+
+This architecture provides separation of concerns, making the application more maintainable and scalable.
+
+## Flask Framework
+Flask is a lightweight WSGI web application framework in Python. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. Flask offers simplicity, flexibility, and fine-grained control. It provides a solid foundation with tools, libraries, and technologies to build a robust web application.
+
+## SQLAlchemy ORM
+SQLAlchemy is an Object-Relational Mapping (ORM) library for Python. It provides a full suite of well-known enterprise-level persistence patterns, designed for efficient and high-performing database access. The ORM allows for mapping Python classes to database tables, enabling a more object-oriented approach to database interactions.
+
+## Sentiment Analysis
+Sentiment analysis is the process of determining the emotional tone behind a series of words, used to gain an understanding of attitudes, opinions, and emotions. The system uses two complementary approaches:
+
+1. **TextBlob**: A Python library that provides a simple API for common natural language processing (NLP) tasks. It uses a naive Bayes classifier trained on movie reviews to determine polarity (positive/negative) and subjectivity.
+
+2. **VADER (Valence Aware Dictionary and sEntiment Reasoner)**: A lexicon and rule-based sentiment analysis tool specifically attuned to sentiments expressed in social media. It considers the intensity of sentiment words and incorporates rules that handle negation, intensification, and contrasting conjunctions.
+
+By combining these approaches, the system provides more accurate sentiment analysis of customer feedback.
+
+# Table Design
+
+## Users Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| user_id | - | INTEGER | Primary key, auto-increment |
+| email | 100 | VARCHAR | User's email address, unique |
+| password_hash | 255 | VARCHAR | Hashed password |
+| role | - | ENUM | User role: 'admin', 'organizer', 'customer' |
+| created_at | - | TIMESTAMP | Account creation timestamp |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+## Customers Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| customer_id | - | INTEGER | Primary key, references user_id |
+| name | 100 | VARCHAR | Customer's full name |
+| phone | 20 | VARCHAR | Contact phone number |
+| address | 255 | VARCHAR | Physical address |
+| preferences | - | TEXT | Event preferences |
+| created_at | - | TIMESTAMP | Record creation timestamp |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+## Organizers Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| organizer_id | - | INTEGER | Primary key, references user_id |
+| name | 100 | VARCHAR | Organizer's full name |
+| organization_name | 150 | VARCHAR | Organization or company name |
+| phone | 20 | VARCHAR | Contact phone number |
+| bio | - | TEXT | Organizer description |
+| created_at | - | TIMESTAMP | Record creation timestamp |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+## Admins Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| admin_id | - | INTEGER | Primary key, references user_id |
+| name | 100 | VARCHAR | Admin's full name |
+| created_at | - | TIMESTAMP | Record creation timestamp |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+## Categories Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| category_id | - | INTEGER | Primary key, auto-increment |
+| name | 100 | VARCHAR | Category name, unique |
+| created_at | - | TIMESTAMP | Record creation timestamp |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+## Events Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| event_id | - | INTEGER | Primary key, auto-increment |
+| organizer_id | - | INTEGER | Foreign key to organizers table |
+| title | 200 | VARCHAR | Event title |
+| description | - | TEXT | Event description |
+| location | 255 | VARCHAR | Event location |
+| category_id | - | INTEGER | Foreign key to categories table |
+| event_date | - | DATETIME | Date and time of the event |
+| total_seats | - | INTEGER | Total available seats |
+| available_seats | - | INTEGER | Currently available seats |
+| price | 10,2 | DECIMAL | Ticket price |
+| image_url | 255 | VARCHAR | URL to event image |
+| status | - | ENUM | Event status: 'pending', 'approved', 'rejected' |
+| created_at | - | TIMESTAMP | Record creation timestamp |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+## Bookings Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| booking_id | - | INTEGER | Primary key, auto-increment |
+| customer_id | - | INTEGER | Foreign key to customers table |
+| event_id | - | INTEGER | Foreign key to events table |
+| quantity | - | INTEGER | Number of tickets booked |
+| total_amount | 10,2 | DECIMAL | Total booking amount |
+| booking_time | - | TIMESTAMP | Time of booking |
+| status | - | ENUM | Booking status: 'booked', 'cancelled' |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+## Payments Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| payment_id | - | INTEGER | Primary key, auto-increment |
+| booking_id | - | INTEGER | Foreign key to bookings table |
+| amount | 10,2 | DECIMAL | Payment amount |
+| payment_mode | 50 | VARCHAR | Payment method |
+| payment_status | - | ENUM | Status: 'success', 'failed', 'pending' |
+| transaction_id | 100 | VARCHAR | External transaction reference |
+| payment_date | - | TIMESTAMP | Payment timestamp |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+## Feedback Table
+| Field Name | Length | Type | Description |
+|------------|--------|------|-------------|
+| feedback_id | - | INTEGER | Primary key, auto-increment |
+| customer_id | - | INTEGER | Foreign key to customers table |
+| event_id | - | INTEGER | Foreign key to events table |
+| rating | - | INTEGER | Rating (1-5) |
+| comments | - | TEXT | Written feedback |
+| sentiment | 20 | VARCHAR | Analyzed sentiment: 'positive', 'neutral', 'negative' |
+| submitted_at | - | TIMESTAMP | Submission timestamp |
+| updated_at | - | TIMESTAMP | Last update timestamp |
+
+# Testing
+
+## Test Cases
+
+### User Registration Test Cases
+
+| Test ID | Description | Inputs | Expected Output | Pass/Fail Criteria |
+|---------|-------------|--------|----------------|-------------------|
+| UT-001 | Valid customer registration | Email: test@example.com<br>Password: Test123<br>Name: Test User<br>Role: customer | User created successfully | Pass if user is created and stored in database |
+| UT-002 | Invalid email format | Email: invalid-email<br>Password: Test123<br>Name: Test User<br>Role: customer | Error message for invalid email | Pass if form validation prevents submission |
+| UT-003 | Password too short | Email: test@example.com<br>Password: Test1<br>Name: Test User<br>Role: customer | Error message for password length | Pass if form validation prevents submission |
+| UT-004 | Duplicate email | Email: existing@example.com<br>Password: Test123<br>Name: Test User<br>Role: customer | Error message for duplicate email | Pass if system prevents creation of duplicate user |
+
+### Event Creation Test Cases
+
+| Test ID | Description | Inputs | Expected Output | Pass/Fail Criteria |
+|---------|-------------|--------|----------------|-------------------|
+| ET-001 | Valid event creation | Title: Test Event<br>Category: Music<br>Date: Future date<br>Location: Test Venue<br>Seats: 100<br>Price: 25.00 | Event created with pending status | Pass if event is created and stored with pending status |
+| ET-002 | Missing required fields | Title: (empty)<br>Category: Music<br>Date: Future date | Validation error messages | Pass if form validation prevents submission |
+| ET-003 | Past event date | Title: Test Event<br>Date: Past date | Error message for invalid date | Pass if form validation prevents submission |
+| ET-004 | Invalid price | Title: Test Event<br>Price: -10.00 | Error message for invalid price | Pass if form validation prevents submission |
+
+### Booking Test Cases
+
+| Test ID | Description | Inputs | Expected Output | Pass/Fail Criteria |
+|---------|-------------|--------|----------------|-------------------|
+| BT-001 | Successful booking | Event: Available event<br>Quantity: 2<br>Payment: Valid | Booking confirmed, seats updated | Pass if booking is created and seats are updated |
+| BT-002 | Booking more than available | Event: Event with 1 seat<br>Quantity: 2 | Error message for insufficient seats | Pass if system prevents overbooking |
+| BT-003 | Failed payment | Event: Available event<br>Quantity: 2<br>Payment: Invalid | Error message for payment failure | Pass if booking is not confirmed on payment failure |
+| BT-004 | Booking cancellation | Booking: Active booking | Booking status updated, seats restored | Pass if booking is cancelled and seats are restored |
+
+### Feedback Test Cases
+
+| Test ID | Description | Inputs | Expected Output | Pass/Fail Criteria |
+|---------|-------------|--------|----------------|-------------------|
+| FT-001 | Submit valid feedback | Rating: 4<br>Comments: "Great event!" | Feedback stored, sentiment analyzed | Pass if feedback is stored with correct sentiment |
+| FT-002 | Submit without rating | Rating: None<br>Comments: "Great event!" | Error message for missing rating | Pass if form validation prevents submission |
+| FT-003 | Submit for unattended event | User: No booking for event | Access denied message | Pass if system prevents feedback for unattended events |
+| FT-004 | Submit for future event | Event: Future date | Access denied message | Pass if system prevents feedback for future events |
+
+## Test Report
+
+| Test ID | Expected Result | Actual Result | Status | Notes |
+|---------|----------------|---------------|--------|-------|
+| UT-001 | User created successfully | User created successfully | Pass | |
+| UT-002 | Error message for invalid email | Error message displayed | Pass | |
+| UT-003 | Error message for password length | Error message displayed | Pass | |
+| UT-004 | Error message for duplicate email | Error message displayed | Pass | |
+| ET-001 | Event created with pending status | Event created with pending status | Pass | |
+| ET-002 | Validation error messages | Validation errors displayed | Pass | |
+| ET-003 | Error message for invalid date | Error message displayed | Pass | |
+| ET-004 | Error message for invalid price | Error message displayed | Pass | |
+| BT-001 | Booking confirmed, seats updated | Booking confirmed, seats updated | Pass | |
+| BT-002 | Error message for insufficient seats | Error message displayed | Pass | |
+| BT-003 | Error message for payment failure | Error message displayed | Pass | |
+| BT-004 | Booking cancelled, seats restored | Booking cancelled, seats restored | Pass | |
+| FT-001 | Feedback stored, sentiment analyzed | Feedback stored with positive sentiment | Pass | |
+| FT-002 | Error message for missing rating | Error message displayed | Pass | |
+| FT-003 | Access denied message | Access denied message displayed | Pass | |
+| FT-004 | Access denied message | Access denied message displayed | Pass | |
+
+**Test Summary**:
+- Total test cases: 16
+- Passed: 16
+- Failed: 0
+- Pass rate: 100%
+
+The system has successfully passed all test cases, demonstrating that it meets the specified requirements and functions as expected. The testing process has validated the core functionality of user management, event creation, booking, and feedback collection.
