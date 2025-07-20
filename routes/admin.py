@@ -6,6 +6,21 @@ import json
 
 admin_bp = Blueprint('admin', __name__)
 
+# Authentication decorator for admin
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            flash('Please log in to access this page', 'warning')
+            return redirect(url_for('main.login'))
+        
+        if session.get('role') != 'admin':
+            flash('Access denied. Admin privileges required.', 'danger')
+            return redirect(url_for('main.index'))
+            
+        return f(*args, **kwargs)
+    return decorated_function
+
 # Admin API routes for reports
 @admin_bp.route('/api/platform-report')
 @admin_required
@@ -171,21 +186,6 @@ def get_platform_report_data(start_date, end_date, organizer_id=None, event_id=N
             'end_date': end_date.strftime('%Y-%m-%d')
         }
     }
-
-# Authentication decorator for admin
-def admin_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if 'user_id' not in session:
-            flash('Please log in to access this page', 'warning')
-            return redirect(url_for('main.login'))
-        
-        if session.get('role') != 'admin':
-            flash('Access denied. Admin privileges required.', 'danger')
-            return redirect(url_for('main.index'))
-            
-        return f(*args, **kwargs)
-    return decorated_function
 
 # Admin routes
 @admin_bp.route('/dashboard')
