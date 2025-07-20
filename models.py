@@ -126,7 +126,8 @@ class Organizer(db.Model):
             for booking in event.bookings:
                 if booking.status == 'booked':
                     # Organizer receives 95% of booking amount (5% goes to admin)
-                    total_revenue += float(booking.total_amount or 0) * 0.95
+                    booking_amount = float(booking.total_amount) if booking.total_amount else 0.0
+                    total_revenue += booking_amount * 0.95
         return total_revenue
     
     def to_dict(self):
@@ -216,7 +217,8 @@ class Admin(db.Model):
         # Get all booked bookings across the platform
         all_bookings = Booking.query.filter_by(status='booked').all()
         for booking in all_bookings:
-            total_commission += float(booking.total_amount or 0) * 0.05
+            booking_amount = float(booking.total_amount) if booking.total_amount else 0.0
+            total_commission += booking_amount * 0.05
         return total_commission
     
     @staticmethod
@@ -225,7 +227,8 @@ class Admin(db.Model):
         total_revenue = 0
         all_bookings = Booking.query.filter_by(status='booked').all()
         for booking in all_bookings:
-            total_revenue += float(booking.total_amount or 0)
+            booking_amount = float(booking.total_amount) if booking.total_amount else 0.0
+            total_revenue += booking_amount
         return total_revenue
     
     def to_dict(self):
@@ -298,7 +301,8 @@ class Event(db.Model):
         for booking in self.bookings:
             if booking.status == 'booked':
                 # Organizer receives 95% of booking amount (5% goes to admin)
-                total += float(booking.total_amount or 0) * 0.95
+                booking_amount = float(booking.total_amount) if booking.total_amount else 0.0
+                total += booking_amount * 0.95
         return total
     
     def get_average_rating(self):
