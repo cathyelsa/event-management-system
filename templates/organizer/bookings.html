@@ -425,8 +425,8 @@
                         <span class="stat-label">Confirmed</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">${{ "%.2f"|format(bookings|selectattr('status', 'equalto', 'booked')|map(attribute='total_amount')|sum) }}</span>
-                        <span class="stat-label">Total Revenue</span>
+                        <span class="stat-value">${{ "%.2f"|format((bookings|selectattr('status', 'equalto', 'booked')|map(attribute='total_amount')|sum) * 0.95) }}</span>
+                        <span class="stat-label">Net Revenue (95%)</span>
                     </div>
                 </div>
             </div>

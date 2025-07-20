@@ -34,8 +34,10 @@ def dashboard():
     total_bookings = Booking.query.count()
     
     # Calculate total revenue
-    total_revenue = db.session.query(db.func.sum(Booking.total_amount))\
+    # Calculate admin commission (5% of all bookings)
+    gross_revenue = db.session.query(db.func.sum(Booking.total_amount))\
                     .filter(Booking.status == 'booked').scalar() or 0
+    admin_commission = float(gross_revenue) * 0.05
     
     # Get recent events
     recent_events = Event.query.order_by(Event.created_at.desc()).limit(5).all()
@@ -50,7 +52,8 @@ def dashboard():
                           total_events=total_events,
                           pending_events=pending_events,
                           total_bookings=total_bookings,
-                          total_revenue=total_revenue,
+                          admin_commission=admin_commission,
+                          gross_revenue=gross_revenue,
                           recent_events=recent_events,
                           recent_bookings=recent_bookings)
 

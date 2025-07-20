@@ -160,7 +160,8 @@ def get_revenue_data(organizer_id, start_date, end_date, event_id=None):
     bookings = bookings_query.all()
     
     # Calculate metrics
-    total_revenue = sum(float(booking.total_amount or 0) for booking in bookings)
+    # Organizer receives 95% of booking amount (5% goes to admin)
+    total_revenue = sum(float(booking.total_amount or 0) * 0.95 for booking in bookings)
     total_bookings = len(bookings)
     total_tickets = sum(booking.quantity for booking in bookings)
     
@@ -171,7 +172,8 @@ def get_revenue_data(organizer_id, start_date, end_date, event_id=None):
     
     for booking in bookings:
         event_title = booking.event.title if booking.event else 'Unknown Event'
-        revenue_by_event[event_title] = revenue_by_event.get(event_title, 0) + float(booking.total_amount or 0)
+        # Organizer receives 95% of booking amount
+        revenue_by_event[event_title] = revenue_by_event.get(event_title, 0) + float(booking.total_amount or 0) * 0.95
         bookings_by_event[event_title] = bookings_by_event.get(event_title, 0) + 1
         tickets_by_event[event_title] = tickets_by_event.get(event_title, 0) + booking.quantity
     
@@ -182,7 +184,8 @@ def get_revenue_data(organizer_id, start_date, end_date, event_id=None):
     revenue_by_month = {}
     for booking in bookings:
         month_key = booking.booking_time.strftime('%Y-%m') if booking.booking_time else 'Unknown'
-        revenue_by_month[month_key] = revenue_by_month.get(month_key, 0) + float(booking.total_amount or 0)
+        # Organizer receives 95% of booking amount
+        revenue_by_month[month_key] = revenue_by_month.get(month_key, 0) + float(booking.total_amount or 0) * 0.95
     
     # Average metrics
     avg_revenue_per_booking = total_revenue / total_bookings if total_bookings > 0 else 0
@@ -198,7 +201,9 @@ def get_revenue_data(organizer_id, start_date, end_date, event_id=None):
         for payment in booking.payments:
             if payment.payment_status == 'success':
                 method = payment.payment_mode or 'Unknown'
-                payment_methods[method] = payment_methods.get(method, 0) + float(payment.amount or 0)
+                # Organizer receives 95% of payment amount
+                payment_methods[method] = payment_methods.get(method, 0) + float(payment.amount or 0) * 0.95
+                payment_methods[method] = payment_methods.get(method, 0) + float(payment.amount or 0) * 0.95
     
     return {
         'summary': {
@@ -239,7 +244,8 @@ def get_event_performance_data(event):
     
     # Booking metrics
     bookings = Booking.query.filter_by(event_id=event.event_id, status='booked').all()
-    total_revenue = sum(float(booking.total_amount or 0) for booking in bookings)
+    # Organizer receives 95% of booking amount (5% goes to admin)
+    total_revenue = sum(float(booking.total_amount or 0) * 0.95 for booking in bookings)
     total_tickets_sold = sum(booking.quantity for booking in bookings)
     
     # Booking timeline (bookings per day)
@@ -312,6 +318,8 @@ def get_revenue_trends(organizer_id, start_date, end_date, period='monthly'):
             key = booking.booking_time.strftime('%Y-%m')
         
         trends[key] = trends.get(key, 0) + float(booking.total_amount or 0)
+        # Organizer receives 95% of booking amount
+        trends[key] = trends.get(key, 0) + float(booking.total_amount or 0) * 0.95
     
     # Convert to list of dictionaries for easier frontend consumption
     trends_list = [
